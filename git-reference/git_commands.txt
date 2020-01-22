@@ -20,3 +20,21 @@ git add filename or dictory
 git status
 
 git commit -m "commit message"
+
+# 파일 삭제 및 복원
+git checkout(repare) directory&filename
+
+git status
+
+# remote repository 확인
+git remote
+
+# remote repository add
+git remote add repository_alias githubaddress
+ex) git remote add origin https://github.com/j2h2apa/pungmu_dev_repository.git
+
+git branch
+
+# git push
+git push repository_alias branchName
+ex) git push origin master
