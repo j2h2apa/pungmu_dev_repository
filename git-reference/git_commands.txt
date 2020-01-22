@@ -1,0 +1,18 @@
+sha1 알고리즘
+
+WorkingDirectory
+repository
+snapshot
+commit
+checkout
+branch
+
+untracked
+uncommited Change
+
+git & github collaboration
+sequence diagram
+
+# commends
+git init
+git add filename or dictory
