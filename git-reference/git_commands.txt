@@ -48,4 +48,5 @@ git remote -v
 2. git clone https://github.com/j2h2apa/pungmu_dev_repository.git
 
 # git pull
-git pull origin master
+git push repository_alias branchName
+ex)git pull origin master
