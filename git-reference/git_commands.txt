@@ -16,3 +16,7 @@ sequence diagram
 # commends
 git init
 git add filename or dictory
+
+git status
+
+git commit -m "commit message"
