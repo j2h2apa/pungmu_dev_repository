@@ -20,6 +20,8 @@ git add filename or dictory
 git status
 
 git commit -m "commit message"
+git commit --help
+git commit -am "commit message" : add (staged) & commit at once
 
 # 파일 삭제 및 복원
 git checkout(repare) directory&filename
@@ -41,6 +43,9 @@ ex) git push origin master
 
 git diff
 
+# commitid1 과 commitid2 사이의 차이점 확인
+git diff commitid1..commitid2
+
 git remote -v
 
 # git clone
@@ -50,3 +55,17 @@ git remote -v
 # git pull
 git push repository_alias branchName
 ex)git pull origin master
+
+# 이전 내용으로 되돌리기
+git checkout directory/filename
+
+# commit 간 차이점 확인
+git log -p
+
+git log commit-id
+
+# reset VS revert 이전 커밋으로 돌아가는 방법
+# 해당 commitID 로 돌아가며 소스코드도 해당 commit 상태로 복원. 이 후 commit 삭제됨. 복구 가능.
+  remote repository 사용 후 절대로 reset 금지
+git reset commitID --hard
+# revert : commit 을 새로 운 것으로 대체
