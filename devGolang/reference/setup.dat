@@ -1,0 +1,5 @@
+1. go compiler 설치 : http://golang.org
+2. cmd 
+3. go version
+4. go env
+   - GOPATH 에 해당하는 디렉토리를 생성(인스톨러가 설치하지 않음)
