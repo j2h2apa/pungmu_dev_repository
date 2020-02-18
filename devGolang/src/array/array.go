@@ -73,6 +73,7 @@ func reverseClone() {
 // 범위가 정해져 있어야 한다. 갯수가 작아야 한다
 func redixSort() {
 	arr := [11]int{0, 5, 4, 9, 1, 2, 8, 3, 6, 4, 5}
+	// 0 ~ 9 사이 숫자 카운트 이므로 index 는 10
 	var temp [10]int
 
 	for i := 0; i < len(arr); i++ {
