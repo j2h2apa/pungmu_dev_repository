@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>Tongchun's go gin</title>
+    </head>
+    <body>
+        <h2>page: {{ .page }}</h2>
+        <form action="http://localhost:8080/postMap?ids[a]=1234&ids[b]=hello" method="POST">
+            first name: <input type="text" name="names[first]">
+            family name: <input type="text" name="names[second]">
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>

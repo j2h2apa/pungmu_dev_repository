@@ -1,0 +1,110 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] Loaded HTML Templates (10): 
+	- formdata.tmpl
+	- uformdata.tmpl
+	- article.html
+	- checkbox_bind.tmpl
+	- index.tmpl
+	- parm_conv_map.tmpl
+	- raw.tmpl
+	- uploadfile.html
+	- uploadfiles.tmpl
+	- 
+
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (5 handlers)
+[GIN-debug] GET    /index                    --> main.main.func2 (5 handlers)
+[GIN-debug] GET    /ping                     --> main.main.func3 (5 handlers)
+[GIN-debug] GET    /someGet                  --> webapp/ginEx/controller/apis.(*qstart).someMethod-fm (5 handlers)
+[GIN-debug] POST   /somePost                 --> webapp/ginEx/controller/apis.(*qstart).someMethod-fm (5 handlers)
+[GIN-debug] PUT    /somePut                  --> webapp/ginEx/controller/apis.(*qstart).someMethod-fm (5 handlers)
+[GIN-debug] DELETE /someDelete               --> webapp/ginEx/controller/apis.(*qstart).someMethod-fm (5 handlers)
+[GIN-debug] PATCH  /somePatch                --> webapp/ginEx/controller/apis.(*qstart).someMethod-fm (5 handlers)
+[GIN-debug] HEAD   /someHead                 --> webapp/ginEx/controller/apis.(*qstart).someMethod-fm (5 handlers)
+[GIN-debug] OPTIONS /someOptions              --> webapp/ginEx/controller/apis.(*qstart).someMethod-fm (5 handlers)
+[GIN-debug] GET    /user/:name               --> webapp/ginEx/controller/apis.(*Paraminpath).setuprouter.func1 (5 handlers)
+[GIN-debug] GET    /user/:name/age/:old      --> webapp/ginEx/controller/apis.(*Paraminpath).setuprouter.func2 (5 handlers)
+[GIN-debug] GET    /color/:color/*fruits     --> webapp/ginEx/controller/apis.(*Paraminpath).setuprouter.func3 (5 handlers)
+[GIN-debug] POST   /user/:name/*action       --> webapp/ginEx/controller/apis.(*Paraminpath).setuprouter.func4 (5 handlers)
+[GIN-debug] GET    /welcome                  --> webapp/ginEx/controller/apis.(*queryString).welcomeQueryString-fm (5 handlers)
+[GIN-debug] GET    /form_input               --> webapp/ginEx/controller/apis.(*formPost).setupRouter.func1 (5 handlers)
+[GIN-debug] POST   /form_post                --> webapp/ginEx/controller/apis.(*formPost).formPostHandler-fm (5 handlers)
+[GIN-debug] GET    /form_post_with_querystring_in --> webapp/ginEx/controller/apis.(*formPost).setupRouter.func2 (5 handlers)
+[GIN-debug] POST   /form_post_with_querystring --> webapp/ginEx/controller/apis.(*formPost).uformPostHandler-fm (5 handlers)
+[GIN-debug] GET    /note                     --> webapp/ginEx/controller/apis.(*parmConvMap).setupRouter.func1 (5 handlers)
+[GIN-debug] POST   /postMap                  --> webapp/ginEx/controller/apis.(*parmConvMap).PostMap-fm (5 handlers)
+[GIN-debug] GET    /files/*filepath          --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /files/*filepath          --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /uploadpage               --> webapp/ginEx/controller/apis.(*fileUploader).setupRouter.func1 (5 handlers)
+[GIN-debug] POST   /upload                   --> webapp/ginEx/controller/apis.uploadSingle (5 handlers)
+[GIN-debug] GET    /uploadpages              --> webapp/ginEx/controller/apis.(*fileUploader).setupRouter.func2 (5 handlers)
+[GIN-debug] POST   /multiupload              --> webapp/ginEx/controller/apis.uploadMultifile (5 handlers)
+[GIN-debug] POST   /uploadbind               --> webapp/ginEx/controller/apis.uploadbindSingle (5 handlers)
+[GIN-debug] POST   /multiuploadbind          --> webapp/ginEx/controller/apis.uploadbindMulty (5 handlers)
+[GIN-debug] POST   /v1/login                 --> webapp/ginEx/controller/apis.(*routerGroup).loginEndpoint-fm (5 handlers)
+[GIN-debug] POST   /v1/submit                --> webapp/ginEx/controller/apis.(*routerGroup).submitEndpoint-fm (5 handlers)
+[GIN-debug] POST   /v1/read                  --> webapp/ginEx/controller/apis.(*routerGroup).readEndpoint-fm (5 handlers)
+[GIN-debug] POST   /v2/login                 --> webapp/ginEx/controller/apis.(*routerGroup).loginEndpoint-fm (5 handlers)
+[GIN-debug] POST   /v2/submit                --> webapp/ginEx/controller/apis.(*routerGroup).submitEndpoint-fm (5 handlers)
+[GIN-debug] POST   /v2/read                  --> webapp/ginEx/controller/apis.(*routerGroup).readEndpoint-fm (5 handlers)
+[GIN-debug] GET    /welcome/:name            --> webapp/ginEx/controller/apis.(*swago).welcomePathParam-fm (5 handlers)
+[GIN-debug] POST   /binding/json             --> webapp/ginEx/controller/apis.(*modelbind).bindingTestJSON-fm (5 handlers)
+[GIN-debug] GET    /binding/form             --> webapp/ginEx/controller/apis.(*modelbind).bindingTestFORM-fm (5 handlers)
+[GIN-debug] POST   /binding/form             --> webapp/ginEx/controller/apis.(*modelbind).bindingTestFORM-fm (5 handlers)
+[GIN-debug] PUT    /binding/form             --> webapp/ginEx/controller/apis.(*modelbind).bindingTestFORM-fm (5 handlers)
+[GIN-debug] PATCH  /binding/form             --> webapp/ginEx/controller/apis.(*modelbind).bindingTestFORM-fm (5 handlers)
+[GIN-debug] HEAD   /binding/form             --> webapp/ginEx/controller/apis.(*modelbind).bindingTestFORM-fm (5 handlers)
+[GIN-debug] OPTIONS /binding/form             --> webapp/ginEx/controller/apis.(*modelbind).bindingTestFORM-fm (5 handlers)
+[GIN-debug] DELETE /binding/form             --> webapp/ginEx/controller/apis.(*modelbind).bindingTestFORM-fm (5 handlers)
+[GIN-debug] CONNECT /binding/form             --> webapp/ginEx/controller/apis.(*modelbind).bindingTestFORM-fm (5 handlers)
+[GIN-debug] TRACE  /binding/form             --> webapp/ginEx/controller/apis.(*modelbind).bindingTestFORM-fm (5 handlers)
+[GIN-debug] GET    /binding/shouldbindquery  --> webapp/ginEx/controller/apis.(*modelbind).bindingTestQUERY-fm (5 handlers)
+[GIN-debug] POST   /binding/shouldbindquery  --> webapp/ginEx/controller/apis.(*modelbind).bindingTestQUERY-fm (5 handlers)
+[GIN-debug] PUT    /binding/shouldbindquery  --> webapp/ginEx/controller/apis.(*modelbind).bindingTestQUERY-fm (5 handlers)
+[GIN-debug] PATCH  /binding/shouldbindquery  --> webapp/ginEx/controller/apis.(*modelbind).bindingTestQUERY-fm (5 handlers)
+[GIN-debug] HEAD   /binding/shouldbindquery  --> webapp/ginEx/controller/apis.(*modelbind).bindingTestQUERY-fm (5 handlers)
+[GIN-debug] OPTIONS /binding/shouldbindquery  --> webapp/ginEx/controller/apis.(*modelbind).bindingTestQUERY-fm (5 handlers)
+[GIN-debug] DELETE /binding/shouldbindquery  --> webapp/ginEx/controller/apis.(*modelbind).bindingTestQUERY-fm (5 handlers)
+[GIN-debug] CONNECT /binding/shouldbindquery  --> webapp/ginEx/controller/apis.(*modelbind).bindingTestQUERY-fm (5 handlers)
+[GIN-debug] TRACE  /binding/shouldbindquery  --> webapp/ginEx/controller/apis.(*modelbind).bindingTestQUERY-fm (5 handlers)
+[GIN-debug] GET    /name/:uriname/age/:uriage/id/:uriid --> webapp/ginEx/controller/apis.(*uRIBindRouter).setupRouter.func1 (5 handlers)
+[GIN-debug] GET    /long_async               --> webapp/ginEx/controller/apis.longAsync (5 handlers)
+[GIN-debug] GET    /long_sync                --> webapp/ginEx/controller/apis.longSync (5 handlers)
+[GIN-debug] GET    /getHeader                --> webapp/ginEx/controller/apis.(*headerBind).setupRouter.func1 (5 handlers)
+[GIN-debug] GET    /checkboxBindIn           --> webapp/ginEx/controller/apis.(*checkBoxBind).setupRouter.func1 (5 handlers)
+[GIN-debug] POST   /checkboxBind             --> webapp/ginEx/controller/apis.(*checkBoxBind).setupRouter.func2 (5 handlers)
+[GIN-debug] GET    /someJSON                 --> webapp/ginEx/controller/apis.(*renderBind).setupRouter.func1 (5 handlers)
+[GIN-debug] GET    /moreJSON                 --> webapp/ginEx/controller/apis.(*renderBind).setupRouter.func2 (5 handlers)
+[GIN-debug] GET    /someXML                  --> webapp/ginEx/controller/apis.(*renderBind).setupRouter.func3 (5 handlers)
+[GIN-debug] GET    /someYAML                 --> webapp/ginEx/controller/apis.(*renderBind).setupRouter.func4 (5 handlers)
+[GIN-debug] GET    /someProtoBuf             --> webapp/ginEx/controller/apis.(*renderBind).setupRouter.func5 (5 handlers)
+[GIN-debug] GET    /someSecureJSON           --> webapp/ginEx/controller/apis.handlerSecureJSON (5 handlers)
+[GIN-debug] GET    /nonPureJSON              --> webapp/ginEx/controller/apis.handlerPureJSON (5 handlers)
+[GIN-debug] GET    /pureJSON                 --> webapp/ginEx/controller/apis.handlerPureJSON (5 handlers)
+[GIN-debug] GET    /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /assets/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /more_static/*filepath    --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /more_static/*filepath    --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /solhee                   --> github.com/gin-gonic/gin.(*RouterGroup).StaticFile.func1 (5 handlers)
+[GIN-debug] HEAD   /solhee                   --> github.com/gin-gonic/gin.(*RouterGroup).StaticFile.func1 (5 handlers)
+[GIN-debug] GET    /local/file               --> webapp/ginEx/controller/apis.(*servingRouter).setupRouter.func1 (5 handlers)
+[GIN-debug] GET    /diagnose/servingfilefs   --> webapp/ginEx/controller/apis.(*servingRouter).setupRouter.func2 (5 handlers)
+[GIN-debug] GET    /diagnose/someDataFromReader --> webapp/ginEx/controller/apis.servingReader (5 handlers)
+[GIN-debug] GET    /templates/posts/index    --> webapp/ginEx/controller/apis.(*templateRouter).setupRouter.func1 (5 handlers)
+[GIN-debug] GET    /templates/users/index    --> webapp/ginEx/controller/apis.(*templateRouter).setupRouter.func2 (5 handlers)
+[GIN-debug] GET    /templates/raw            --> webapp/ginEx/controller/apis.customTemplateFunc (5 handlers)
+[GIN-debug] GET    /redirectCase1            --> webapp/ginEx/controller/apis.(*redirectsRouter).setupRouter.func1 (5 handlers)
+[GIN-debug] GET    /redirectCase2            --> webapp/ginEx/controller/apis.(*redirectsRouter).setupRouter.func2 (5 handlers)
+[GIN-debug] GET    /redirectCase21           --> webapp/ginEx/controller/apis.(*redirectsRouter).setupRouter.func3 (5 handlers)
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
+::1 - [Tue, 07 Apr 2020 11:08:12 KST] "GET /redirectCase1 HTTP/1.1 301 0s "PostmanRuntime/7.24.0" "
+[GIN] 2020/04/07 - 11:08:12 | 301 |      1.0004ms |             ::1 | GET      "/redirectCase1"
+::1 - [Tue, 07 Apr 2020 11:08:28 KST] "GET /redirectCase21 HTTP/1.1 200 0s "PostmanRuntime/7.24.0" "
+[GIN] 2020/04/07 - 11:08:28 | 200 |            0s |             ::1 | GET      "/redirectCase21"
+::1 - [Tue, 07 Apr 2020 11:08:28 KST] "GET /redirectCase2 HTTP/1.1 200 0s "PostmanRuntime/7.24.0" "
+[GIN] 2020/04/07 - 11:08:28 | 200 |            0s |             ::1 | GET      "/redirectCase2"

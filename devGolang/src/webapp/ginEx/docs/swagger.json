@@ -1,0 +1,209 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server Petstore server.",
+        "title": "Swagger Example API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/binding/form": {
+            "post": {
+                "description": "FORM binding model.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "form binding sample for request info",
+                "parameters": [
+                    {
+                        "description": "user password nick age",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/apis.User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/apis.User"
+                        }
+                    }
+                }
+            }
+        },
+        "/binding/json": {
+            "post": {
+                "description": "JSON binding model.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "json binding sample for request info",
+                "parameters": [
+                    {
+                        "description": "user password nick age",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/apis.User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/apis.User"
+                        }
+                    }
+                }
+            }
+        },
+        "/binding/shouldbindquery": {
+            "get": {
+                "description": "querystring binding model.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "querystring binding sample for request info",
+                "parameters": [
+                    {
+                        "description": "user password birthday",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/apis.UseMan"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/apis.UseMan"
+                        }
+                    }
+                }
+            }
+        },
+        "/welcome/{name}": {
+            "get": {
+                "description": "자세한 설명은 이곳에 적습니다.\n자세한 설명은 이곳에 적습니다. - 2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Summary를 적어 줍니다.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "User name",
+                        "name": "name",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/apis.welcomeModel"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "apis.UseMan": {
+            "type": "object",
+            "required": [
+                "password",
+                "user"
+            ],
+            "properties": {
+                "birthday": {
+                    "type": "string",
+                    "format": "time.Time"
+                },
+                "password": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "user": {
+                    "type": "string",
+                    "format": "string"
+                }
+            }
+        },
+        "apis.User": {
+            "type": "object",
+            "required": [
+                "age",
+                "password",
+                "user"
+            ],
+            "properties": {
+                "age": {
+                    "type": "integer",
+                    "format": "uint16",
+                    "example": 46
+                },
+                "nick": {
+                    "type": "string",
+                    "format": "string",
+                    "example": "nickname"
+                },
+                "password": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "user": {
+                    "type": "string",
+                    "format": "string"
+                }
+            }
+        },
+        "apis.welcomeModel": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 1
+                },
+                "name": {
+                    "type": "string",
+                    "example": "account name"
+                }
+            }
+        }
+    }
+}

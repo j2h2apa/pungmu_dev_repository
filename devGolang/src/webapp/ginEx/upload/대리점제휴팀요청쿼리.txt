@@ -1,0 +1,93 @@
+/* Formatted on 2019/10/14 오후 3:48:27 (QP5 v5.227.12220.39754) */
+  SELECT SRC.*,
+         CASE
+            WHEN SRC.기본금액 IS NULL OR SRC.할인금액 IS NULL THEN 0
+            ELSE ROUND (SRC.할인금액 / SRC.기본금액 * 100, 2)
+         END
+            AS 할인율
+    FROM (  SELECT CMMFN_TO_DEPTNM (CHRG_DEPT_ID) AS 담당부서,
+                   ARVL_DT AS 도착월,
+                   SUM (PTTN_AMT) AS 기본금액,
+                   SUM (DISC_AMT) AS 할인금액
+              FROM (SELECT SM.CHRG_DEPT_ID,
+                           SUBSTR (ET.ARVL_DT, 0, 6) AS ARVL_DT,
+                           SM.SAL_SEQ,
+                           CMMFN_TO_CODENM ('PRDCHN', SAL_CHNL_CD) AS CHNL,
+                           CMMFN_TO_DEPTNM (SM.SAL_DEPT_ID) AS AGCY,
+                           (SELECT FARE_AMT
+                              FROM EVT_FARE EF
+                             WHERE     EF.EVENT_SEQ = SM.EVENT_SEQ
+                                   AND EF.SEASON_YR = SR.SEASON_YR
+                                   AND EF.SEASON_CD = SR.SEASON_CD
+                                   AND EF.FARE_PTTN_DTL_SEQ =
+                                          SR.FARE_PTTN_DTL_SEQ
+                                   AND EF.DEL_YN = 'N')
+                              AS PTTN_AMT,
+                           (SELECT SUM (SD.DISC_AMT)
+                              FROM SAL_DISC SD
+                             WHERE     SD.SAL_RSV_SEQ = SR.SAL_RSV_SEQ
+                                   AND SD.JOB_GB = 'SAL'
+                                   AND SD.DEL_YN = 'N')
+                              AS DISC_AMT
+                      FROM SAL_MASTER SM, SAL_RSV SR, EVT_EVENT ET
+                     WHERE     SM.DEL_YN = 'N'
+                           AND SM.CNCL_YN = 'N'
+                           AND SR.DEL_YN = 'N'
+                           AND SR.CNCL_YN = 'N'
+                           AND SM.SAL_SEQ = SR.SAL_SEQ
+                           AND SM.EVENT_SEQ = ET.EVENT_SEQ
+                           AND ET.ARVL_DT BETWEEN '20170501' AND '20170531'
+                           --       AND SM.SAL_SEQ = 1678510
+                           --                 AND SM.CHRG_DEPT_ID IN ('H00807')
+                           AND SAL_CHNL_CD IN ('01', '02'))
+          GROUP BY CHRG_DEPT_ID, ARVL_DT) SRC
+ORDER BY 담당부서, 도착월;
+
+/* Formatted on 2019/10/14 오전 10:18:46 (QP5 v5.227.12220.39754) */
+  SELECT CMMFN_TO_DEPTNM (CHRG_DEPT_ID) AS 담당부서,
+         ARVL_DT as 도착월,
+         SUM (COMAMT) AS 수수료,
+         SUM (BILLAMT) AS 세금계산서금액,
+         SUM (CARDFEEAMT) AS 카드수수료금액
+    FROM (SELECT SM.CHRG_DEPT_ID,
+                 SUBSTR (ET.ARVL_DT, 0, 6) AS ARVL_DT,
+                 SM.SAL_SEQ,
+                 CMMFN_TO_CODENM ('PRDCHN', SAL_CHNL_CD) AS CHNL,
+                 CMMFN_TO_DEPTNM (SM.SAL_DEPT_ID) AS AGCY,
+                 AGCY_COM_AMT AS COMAMT,
+                 CARD_FEE_AMT AS CARDFEEAMT,
+                 (SELECT SUM (INCM_AMT)
+                    FROM CMM_INCM
+                   WHERE     DEL_YN = 'N'
+                         AND INCM_METH_CD = 'BILL'
+                         AND JOB_GB = 'SAL'
+                         AND JOB_SEQ = SM.SAL_SEQ)
+                    AS BILLAMT
+            FROM SAL_MASTER SM, EVT_EVENT ET
+           WHERE     SAL_CHNL_CD IN ('03', '04', '05', '06', '07')
+                 AND ET.EVENT_SEQ = SM.EVENT_SEQ
+                 AND ET.ARVL_DT BETWEEN '20170101' AND '20171231'
+                 AND SM.CNCL_YN = 'N'
+                 AND SM.DEL_YN = 'N'
+                 AND ET.CALC_YN IN ('I', 'Y')
+                 AND SM.CHRG_DEPT_ID IN
+                        ('G00325',
+                         'H00847',
+                         'H00850',
+                         'H00853',
+                         'G00229',
+                         'H00925',
+                         'H00928',
+                         'H00940',
+                         'H00943',
+                         'G00340',
+                         'G00232',
+                         'H00732',
+                         'G00345',
+                         'H00945',
+                         'G00234',
+                         'H00734',
+                         'G00236',
+                         'H00736'))
+GROUP BY CHRG_DEPT_ID, ARVL_DT
+ORDER BY CHRG_DEPT_ID, ARVL_DT;

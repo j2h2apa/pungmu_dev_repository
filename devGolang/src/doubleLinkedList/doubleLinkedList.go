@@ -1,12 +1,12 @@
 package main
 
 import (
-	"dataStruct"
+	"datastruct"
 	"fmt"
 )
 
 func main() {
-	var list *dataStruct.LinkedList = &dataStruct.LinkedList{}
+	var list *datastruct.LinkedList = &datastruct.LinkedList{}
 
 	list.AddNode(0)
 

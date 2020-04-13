@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Tongchun's go gin</title>
+    </head>
+    <body>
+        <h2>page: {{ .page }}</h2>
+        <form action="http://localhost:8080/upload" method="POST" enctype="multipart/form-data">
+            upload file: <input type="file" name="file">
+            <input type="submit" value="Submit">
+        </form>
+
+        <form action="http://localhost:8080/uploadbind" method="POST" enctype="multipart/form-data">
+            name: <input type="text" name="name"><br>
+            upload file: <input type="file" name="avatar">
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>

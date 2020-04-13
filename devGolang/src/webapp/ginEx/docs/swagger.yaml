@@ -1,0 +1,144 @@
+basePath: /
+definitions:
+  apis.UseMan:
+    properties:
+      birthday:
+        format: time.Time
+        type: string
+      password:
+        format: string
+        type: string
+      user:
+        format: string
+        type: string
+    required:
+    - password
+    - user
+    type: object
+  apis.User:
+    properties:
+      age:
+        example: 46
+        format: uint16
+        type: integer
+      nick:
+        example: nickname
+        format: string
+        type: string
+      password:
+        format: string
+        type: string
+      user:
+        format: string
+        type: string
+    required:
+    - age
+    - password
+    - user
+    type: object
+  apis.welcomeModel:
+    properties:
+      id:
+        example: 1
+        format: int64
+        type: integer
+      name:
+        example: account name
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server Petstore server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /binding/form:
+    post:
+      consumes:
+      - application/json
+      description: FORM binding model.
+      parameters:
+      - description: user password nick age
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/apis.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/apis.User'
+      summary: form binding sample for request info
+  /binding/json:
+    post:
+      consumes:
+      - application/json
+      description: JSON binding model.
+      parameters:
+      - description: user password nick age
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/apis.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/apis.User'
+      summary: json binding sample for request info
+  /binding/shouldbindquery:
+    get:
+      consumes:
+      - application/json
+      description: querystring binding model.
+      parameters:
+      - description: user password birthday
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/apis.UseMan'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/apis.UseMan'
+      summary: querystring binding sample for request info
+  /welcome/{name}:
+    get:
+      consumes:
+      - application/json
+      description: |-
+        자세한 설명은 이곳에 적습니다.
+        자세한 설명은 이곳에 적습니다. - 2
+      parameters:
+      - description: User name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/apis.welcomeModel'
+      summary: Summary를 적어 줍니다.
+swagger: "2.0"
